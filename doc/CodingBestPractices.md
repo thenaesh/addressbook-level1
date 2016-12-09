@@ -53,7 +53,7 @@ Proper naming improves the code quality immensely. It also reduces bugs caused b
 * A name should be an accurate and complete description of its entity. For example, `processStuff()` is a bad choice for a method; what 'stuff' and what 'process'? On the other hand, `removeWhiteSpaceFromInput` is a better choice. Other bad examples include `flag`, `temp`, `i` (unless used as a conventional control variable for a loop).
 * It is preferable not to have lengthy names, unless unavoidable; names that are 'too short' are even worse.
 * Use correct spelling in names (and even in comments). Avoid 'texting-style' spelling.
-* Uf you must abbreviate or use acronyms, do it consistently. Explain their full meaning at an obvious location.
+* If you must abbreviate or use acronyms, do it consistently. Explain their full meaning at an obvious location.
 * Avoid misleading names (e.g. those with multiple meanings), similar sounding names, hard to read ones (e.g. avoid ambiguities like "is that a lowercase L, capital I or number 1?" or "is that number 0 or letter O?"), almost similar names, foreign language names, slang and names that are only meaningful within specific contexts such as private jokes.
 
 ### Be obvious
@@ -116,7 +116,7 @@ Global variables may be the most convenient way to pass information around, but 
 ### Avoid magic numbers
 Avoid indiscriminate use of numbers as constants (e.g. 3.1415 as the mathematical constant PI) all over the code. Define them as named constants, preferably in a central location. A similar logic applies to string literals with special meanings (e.g. "Error 1432").
 ```java
-return 3.14159; // BAD
+return 3.1415; // BAD
 return PI;      // BETTER
 ```
 Along the same lines, make calculation logic explicit rather than using the final value.
@@ -134,7 +134,7 @@ originalValue, finalValue; // BETTER
 We all feel reluctant to delete code we have painstakingly written, even if we have no use for that code any more ("I spent a lot of time writing that code; what if we need it again?"). Consider all code as baggage you have to carry; get rid of unused code the moment it becomes redundant. If you need that code again, simply recover it from the revision control tool you are using (you are using one, aren’t you?). Deleting code you wrote previously is a sign that you are improving.
 
 ### Minimize duplication
-The book [The Pragmatic Programmer](http://www.amazon.com/exec/obidos/redirect?link_code=as2&amp;path=ASIN/020161622X&amp;tag=anothedayinmy-20&amp;camp=1789&amp;creative=9325 "The Pragmatic Programmer") calls this the DRY (Don't Repeat Yourself) principle.
+The book [The Pragmatic Programmer](http://www.amazon.com/gp/product/020161622X) calls this the DRY (Don't Repeat Yourself) principle.
 Code duplication, especially when you copy-paste-modify code, often indicates a poor quality
 implementation. While it may not be possible to have zero duplication, always think twice
 before duplicating code; most often there is a better alternative.
