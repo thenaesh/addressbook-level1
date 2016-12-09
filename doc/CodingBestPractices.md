@@ -6,7 +6,7 @@
 
 Among various dimensions of code quality, such as run-time efficiency, security, and robustness, one of the most important is understandability. This is because in any non-trivial team project, team members expect their code to be read, understood, and modified by other developers later on. This handout interprets ‘good quality code’ primarily as code that is easy for developers to work with. There are many coding practices you can follow to improve code quality. For example, the two code samples  given below achieve  the  same  functionality  and  follow  similar  coding  standards, but one is of better quality than the other (Which one? Why?).
 
-```
+```java
 int subsidy() {
 	int subsidy;
 	if (!age) { //not over age limit
@@ -25,7 +25,7 @@ int subsidy() {
 	return subsidy;
 }
 ```
-```
+```java
 int calculateSubsidy() {
 	int subsidy;
 	if (isSenior) {
@@ -69,12 +69,12 @@ It is safer to use language constructs in the way they are meant to be used, eve
 
 * Use the 'default' option of a case statement for an intended default action and not just to execute the last option. If there is no default action, you can use the 'default' branch to detect errors (i.e. if execution reached the 'default' branch, throw an exception). This also applies to the final 'else' of an if-else construct. That is, the final 'else' should mean 'everything else', and not the final option. Do not use 'else' when an 'if' condition can be explicitly specified, unless there is absolutely no other possibility.
 
-```
+```java
 // NOT RECOMMENDED
 if (red) print "red";
 else     print "blue";
 ```
-```
+```java
 // RECOMMENDED
 if (red)       print "red";
 else if (blue) print "blue";
@@ -83,14 +83,14 @@ else           error("incorrect input);
 * Use one variable for one purpose. Do not reuse a variable for a different purpose other than its intended one, just because the data type is the same.
 * Do not reuse formal parameters as local variables inside the method.
 
-```
+```java
 // NOT RECOMMENDED
 double computeRectangleArea(double length, double width) {
 	length = length * width;
 	return length;
 }
 ```
-```
+```java
 // RECOMMENDED
 double computeRectangleArea(double length, double width) {
 	double area;
@@ -115,17 +115,17 @@ Global variables may be the most convenient way to pass information around, but 
 
 ### Avoid magic numbers
 Avoid indiscriminate use of numbers as constants (e.g. 3.1415 as the mathematical constant PI) all over the code. Define them as named constants, preferably in a central location. A similar logic applies to string literals with special meanings (e.g. "Error 1432").
-```
+```java
 return 3.14159; // BAD
 return PI;      // BETTER
 ```
 Along the same lines, make calculation logic explicit rather than using the final value.
-```
+```java
 return 9;            // BAD
 return MAX_SIZE - 1; // BETTER
 ```
 Imagine going to the doctor and saying "My eye1 is swollen!" Minimize the use of numbers to distinguish between related entities such as variables, methods and components.
-```
+```java
 value1, value2             // BAD
 originalValue, finalValue; // BETTER
 ```
@@ -166,7 +166,7 @@ Always assume that "anyone who reads the code you write is dumber than you (duh)
 * Avoid long methods. Be wary when a method is longer than the computer screen, and take corrective action when it goes beyond 50 LOC (lines of code). The bigger the haystack, the harder it is to find a needle.
 * Limit the depth of nesting. According to the Linux 1.3.53 CodingStyle documentation, "_if you need more than 3 levels of indentation, you're screwed anyway, and should fix your program_". In particular, __avoid arrowhead-style code__.
 
-```
+```java
 // DON'T DO THIS! THIS IS ARROWHEAD-STYLE CODE.
 if (!isLong) {
 	if (!isShort) {
@@ -186,7 +186,7 @@ if (!isLong) {
 	print "too long";
 }
 ```
-```
+```java
 // DO THIS INSTEAD!
 if (isLong) {
 	print "too long";
@@ -205,7 +205,7 @@ if (isLong) {
 * Avoid complicated expressions, especially those having many negations and nested parentheses. Sure, the computer can deal with complicated expression; but humans cannot. If you must evaluate complicated expressions, have it done in steps (i.e. calculate some intermediate values first and use them to calculate the final value).
 * The default path of execution (i.e. the path taken when everything goes well) should be clear and prominent in your code. It is the ‘unusual’ cases that should be inside if blocks. Someone reading the code should not get distracted by alternative paths taken when error conditions happen. One technique that could help in this regard is the use of [guard clauses](http://tinyurl.com/guardclause).
 
-```
+```java
 // NOT GOOD
 if (!isUnusualCase) {
 	if (!isErrorCase) {
@@ -221,7 +221,7 @@ if (!isUnusualCase) {
 }
 ```
 In the above code sample, alternative conditions are separated from their handling and the main path is nested deeply. This is undesirable.
-```
+```java
 // BETTER
 if (isUnusualCase) {
 	handleUnusualCase();
@@ -246,14 +246,14 @@ Sometimes, the correctness of your code does not depend on the order in which yo
 
 A sure way to ruin a good story is to describe details which are irrelevant to the story. Avoid varying the level of abstraction within a code fragment. Note: The Productive Programmer (by Neal Ford) calls this the SLAP principle i.e. Single Level of Abstraction Per method.
 
-```
+```java
 // BAD
 readData();
 salary = basic*rise+1000;
 tax = (taxable?salary*0.07:0);
 displayResult();
 ```
-```
+```java
 // BETTER
 readData();
 processData();
