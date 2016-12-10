@@ -274,7 +274,7 @@ This learning outcome is covered by the exercise in `[LO-Refactor]`.
 
 ### Apply coding best practices `[LO-CodingBestPractices]`
 Most of the given code follows the best practices mentioned
-[in this document](doc/CodingBestPractices.md).
+[in this document](doc/CodeQualityBestPractices.md).
 
 This learning outcome is covered by the exercise in `[LO-Refactor]`
 
