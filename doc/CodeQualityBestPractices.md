@@ -1,4 +1,4 @@
-# Code Quality Guidelines
+# Code Quality Best Practices
 
 ## Code Quality
 
