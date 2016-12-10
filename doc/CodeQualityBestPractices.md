@@ -274,7 +274,7 @@ We all get into situations where we need to write some code momentarily that wil
 There are many more good coding practices that are not listed above. If you are serious about improving your code quality, try to look out for more such books. Clean code (by Robert C. Martin) and Code complete (by Steve McConnell) are particularly good resources.
 
 
-> ### Clean Code vs Good Code
+> #### Sidenote: Clean Code vs Good Code
 > The terms 'clean' and 'good' as applied to code are subject to definition. The first chapter of the book 'Clean Code' is about how different prominent practitioners define what 'clean' code is. In CS2103, good code is code that is easy to understand for other programmers, and clean code is easier to understand than messy code. For us, good code should be clean and more.
 
 ### References
