@@ -117,7 +117,7 @@ Global variables may be the most convenient way to pass information around, but 
 Avoid indiscriminate use of numbers as constants (e.g. 3.1415 as the mathematical constant PI) all over the code. Define them as named constants, preferably in a central location. A similar logic applies to string literals with special meanings (e.g. "Error 1432").
 ```java
 return 3.1415; // BAD
-return PI;      // BETTER
+return PI;     // BETTER
 ```
 Along the same lines, make calculation logic explicit rather than using the final value.
 ```java
@@ -164,7 +164,7 @@ Often, simple code runs faster. In addition, simple code is less error-prone and
 Always assume that "anyone who reads the code you write is dumber than you (duh)". Make your code understandable to a "dumb" person. The smarter you think you are compared to your teammates, the more effort you need to make your code understandable to them. Even if we do not intend to pass the code to someone else, code quality is still important because we all become 'strangers' to our own code someday. Here are some tips:
 
 * Avoid long methods. Be wary when a method is longer than the computer screen, and take corrective action when it goes beyond 50 LOC (lines of code). The bigger the haystack, the harder it is to find a needle.
-* Limit the depth of nesting. According to the Linux 1.3.53 CodingStyle documentation, "_if you need more than 3 levels of indentation, you're screwed anyway, and should fix your program_". In particular, __avoid arrowhead-style code__.
+* Limit the depth of nesting. According to the Linux 1.3.53 CodingStyle documentation, "_if you need more than 3 levels of indentation, you're screwed anyway, and should fix your program_". In particular, avoid [arrowhead-style code](https://blog.codinghorror.com/flattening-arrow-code/).
 
 ```java
 // DON'T DO THIS! THIS IS ARROWHEAD-STYLE CODE.
@@ -260,10 +260,10 @@ processData();
 displayResult();
 ```
 
-#### Sidenote: Abstraction
+> #### Sidenote: Abstraction
 > Most programs are written to solve complex problems involving large amounts of intricate details. It is impossible to deal with all these details at the same time. The guiding principle of abstraction stipulates that we capture only details that are relevant to the current perspective or the task at hand. For example, within a certain software component, we might deal with a ‘user’ data type, while ignoring the details contained in the user data item. These details have been ‘abstracted away’ as they do not affect the task of that software component. This is called data abstraction. On the other hand, control abstraction abstracts away details of the actual control flow to focus on tasks at a simplified level. For example, print(“Hello”) is an abstraction of the actual output mechanism within the computer.
 
->Abstraction can be applied repeatedly to obtain higher and higher levels of abstractions . For example, a File is a data item that is at a higher level than an array and an array is at a higher level than a bit. Similarly, `execute(Game)` is at a higher level than print(Char) which is at a higher than an Assembly language instruction `MOV`.
+> Abstraction can be applied repeatedly to obtain higher and higher levels of abstractions . For example, a File is a data item that is at a higher level than an array and an array is at a higher level than a bit. Similarly, `execute(Game)` is at a higher level than print(Char) which is at a higher than an Assembly language instruction `MOV`.
 
 ### Do not release temporary code
 We all get into situations where we need to write some code momentarily that will be disposed of or replaced with better code later. Such code should be marked in some obvious way (e.g. using an embarrassing print message) so that you will not forget to remove them later. It is irresponsible to retain such code in a product release. Production code should be worthy of the quality standards you live by. If a code is important enough to be released, it is important enough to be of production quality.
@@ -273,9 +273,9 @@ We all get into situations where we need to write some code momentarily that wil
 ### Keep looking for ways to improve code quality
 There are many more good coding practices that are not listed above. If you are serious about improving your code quality, try to look out for more such books. Clean code (by Robert C. Martin) and Code complete (by Steve McConnell) are particularly good resources.
 
-## Appendix
 
-### Clean Code vs Good Code
-The terms 'clean' and 'good' as applied to code are subject to definition. The first chapter of the book 'Clean Code' is about how different prominent practitioners define what 'clean' code is. In CS2103, good code is code that is easy to understand for other programmers, and clean code is easier to understand than messy code. For us, good code should be clean and more.
+> ### Clean Code vs Good Code
+> The terms 'clean' and 'good' as applied to code are subject to definition. The first chapter of the book 'Clean Code' is about how different prominent practitioners define what 'clean' code is. In CS2103, good code is code that is easy to understand for other programmers, and clean code is easier to understand than messy code. For us, good code should be clean and more.
+
 ### References
 [2] [Practical Tips for Software-Intensive Student Projects](http://studentprojectguide.info/) (3e), by Damith C. Rajapakse
